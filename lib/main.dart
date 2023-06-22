@@ -1,3 +1,4 @@
+import 'package:firebase_chat/app/presentation/chat/cubit/chat_cubit.dart';
 import 'package:firebase_chat/app/presentation/sign_in/cubit/sign_in_cubit.dart';
 import 'package:firebase_chat/app/presentation/welcome/view/welcome_view.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -28,6 +29,9 @@ class MainApp extends StatelessWidget {
         ),
         BlocProvider<SignUpCubit>(
           create: (BuildContext context) => SignUpCubit(),
+        ),
+        BlocProvider<ChatCubit>(
+          create: (BuildContext context) => ChatCubit(),
         ),
       ],
       child: MaterialApp.router(

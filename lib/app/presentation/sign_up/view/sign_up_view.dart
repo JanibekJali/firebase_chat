@@ -1,6 +1,7 @@
 import 'package:firebase_chat/app/components/buttons/register_widget.dart';
 import 'package:firebase_chat/app/constants/containers/containers.dart';
 import 'package:firebase_chat/app/constants/text_styles/app_text_styles.dart';
+import 'package:firebase_chat/app/models/users/user_model.dart';
 import 'package:firebase_chat/app/presentation/sign_up/cubit/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,19 +26,25 @@ class SignUpView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextField(
-                    controller: state.nameController,
+                    onChanged: (value) {
+                      userModel.name = value;
+                    },
                     decoration: registerDecoration.copyWith(
                         hintText: 'Name', prefixIcon: const Icon(Icons.person)),
                   ),
                   sizedBox,
                   TextField(
-                    controller: state.emailController,
+                    onChanged: (value) {
+                      userModel.email = value;
+                    },
                     decoration: registerDecoration.copyWith(
                         hintText: 'Email', prefixIcon: const Icon(Icons.email)),
                   ),
                   sizedBox,
                   TextField(
-                    controller: state.passwordController,
+                    onChanged: (value) {
+                      userModel.password = value;
+                    },
                     decoration: registerDecoration.copyWith(
                         hintText: 'Password',
                         prefixIcon: const Icon(Icons.key)),
@@ -46,14 +53,14 @@ class SignUpView extends StatelessWidget {
                     children: [
                       const Text(
                         'already have an account?',
-                        style: AppTextStyles.black25,
+                        style: AppTextStyles.black20,
                       ),
                       sizedBoxWidth20,
                       InkWell(
                         onTap: () => context.go('/sign_in'),
                         child: const Text(
                           'Sign In',
-                          style: AppTextStyles.black30Bold,
+                          style: AppTextStyles.black25Bold,
                         ),
                       ),
                     ],
@@ -63,6 +70,7 @@ class SignUpView extends StatelessWidget {
                     text: 'Sign Up',
                     onTap: () {
                       context.read<SignUpCubit>().signUp();
+                      context.go('/chat');
                     },
                   )
                 ],

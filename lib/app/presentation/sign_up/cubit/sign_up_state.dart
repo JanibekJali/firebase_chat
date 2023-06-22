@@ -1,24 +1,24 @@
 part of 'sign_up_cubit.dart';
 
 class SignUpState {
-  final TextEditingController? nameController;
-  final TextEditingController? emailController;
-  final TextEditingController? passwordController;
+  final String? name;
+  final String? email;
+  final String? password;
 
   SignUpState({
-    this.nameController,
-    this.emailController,
-    this.passwordController,
+    this.name,
+    this.email,
+    this.password,
   });
   SignUpState copyWith({
-    TextEditingController? nameController,
-    TextEditingController? emailController,
-    TextEditingController? passwordController,
+    String? name,
+    String? email,
+    String? password,
   }) {
     return SignUpState(
-      nameController: nameController ?? this.nameController,
-      emailController: emailController ?? this.emailController,
-      passwordController: passwordController ?? this.passwordController,
+      name: name ?? this.name,
+      email: email ?? this.email,
+      password: password ?? this.password,
     );
   }
 }

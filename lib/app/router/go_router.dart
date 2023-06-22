@@ -1,4 +1,5 @@
-import 'package:firebase_chat/app/presentation/chat/views/chat_view.dart';
+import 'package:firebase_chat/app/models/users/user_model.dart';
+import 'package:firebase_chat/app/presentation/chat/chat_view.dart';
 import 'package:firebase_chat/app/presentation/sign_in/view/sign_in_view.dart';
 import 'package:firebase_chat/app/presentation/sign_up/view/sign_up_view.dart';
 import 'package:firebase_chat/app/presentation/welcome/view/welcome_view.dart';
